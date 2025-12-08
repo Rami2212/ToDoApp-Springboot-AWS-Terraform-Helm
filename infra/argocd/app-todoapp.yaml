@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: todoapp
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: "https://github.com/Rami2212/AWS-CICD-DevSecOps-Project
+Public.git"
+    targetRevision: main
+    path: infra/helm/todoapp
+
+    helm:
+      releaseName: todoapp
+      valueFiles:
+        - values.yaml
+
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: todoapp
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

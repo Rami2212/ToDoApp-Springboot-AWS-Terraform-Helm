@@ -1,0 +1,6 @@
+# Terraform local state & providers
+**/.terraform/
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log

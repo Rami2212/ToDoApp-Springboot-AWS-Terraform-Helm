@@ -1,0 +1,36 @@
+replicaCount: 2
+
+image:
+  repository: ramitha2002/todoapp-backend
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+resources:
+  requests:
+    cpu: "200m"
+    memory: "256Mi"
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+
+env:
+  # Point this later to RDS or external Postgres
+  SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres.default.svc.cluster.local:5432/tasks"
+  SPRING_DATASOURCE_USERNAME: "task_user"
+  SPRING_DATASOURCE_PASSWORD: "task_password"
+  SERVER_PORT: "8080"
+
+livenessProbe:
+  path: /actuator/health/liveness
+  initialDelaySeconds: 30
+  periodSeconds: 15
+
+readinessProbe:
+  path: /actuator/health/readiness
+  initialDelaySeconds: 30
+  periodSeconds: 15
