@@ -1,14 +1,12 @@
-# 🚀 Cloud Task Manager – DevSecOps CI/CD on AWS EKS
+# 🚀 Cloud Task Manager – DevOps CI/CD on AWS EKS
 
 This project demonstrates an end-to-end DevSecOps pipeline for deploying a Spring Boot microservice to AWS EKS, using:
 
 - ✔ **Terraform** (infrastructure)
 - ✔ **Docker** (image build)
 - ✔ **Helm** (deployment to Kubernetes)
-- ✔ **Trivy** (image security scan)
-- ✔ **SonarQube** (code quality)
 
-The application itself is a simple Task Manager API (CRUD), but the main purpose is to learn end-to-end CI/CD + DevSecOps + Kubernetes deployment.
+The application itself is a simple Task Manager API (CRUD), but the main purpose is to learn end-to-end CI/CD + DevOps + Kubernetes deployment.
 
 ---
 
@@ -236,7 +234,6 @@ http://<EXTERNAL-IP>/actuator/health
 | Docker build fails | Check Dockerfile path in terminal or Jenkins |
 | Helm install fails | Run `helm lint` on your chart or check logs |
 | kubectl fails | Check your AWS credentials and kubeconfig setup |
-| Trivy fails | Run trivy locally to check vulnerabilities |
 
 ---
 
@@ -245,31 +242,5 @@ http://<EXTERNAL-IP>/actuator/health
 - ✅ Infrastructure as Code (IaC) with Terraform
 - ✅ Containerization of Spring Boot app with Docker
 - ✅ Kubernetes Deployment using Helm
-- ✅ Security Scanning with Trivy
-- ✅ Continuous Deployment without Jenkins or ArgoCD (manual steps)
 - ✅ Application Monitoring with Spring Boot Actuator
 
----
-
-## 📌 Next Enhancements (Optional)
-
-- Add RDS for PostgreSQL and configure Kubernetes secrets
-- Set up Ingress + AWS Load Balancer for better service exposure
-- Prometheus & Grafana for monitoring the app
-- Blue/Green or Canary deployments using Helm and Kubernetes
-- Automate using GitHub Actions or integrate Jenkins (if needed)
-- Test your Helm deployment using Helm test or Kubernetes health checks
-
----
-
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
-
-## 👤 Author
-
-Your Name - [@yourhandle](https://github.com/yourhandle)
